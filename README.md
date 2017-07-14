@@ -4,6 +4,8 @@
 
 WebComponent to control Animated GIF playback and access individual frames.
 
+[More demos](https://captaincodeman.github.io/gif-player/components/gif-player/demo/)
+
 <!--
 ```
 <custom-element-demo>
