@@ -150,8 +150,10 @@ export default function() {
       e.preventDefault();
 
       // calculate our relative horizontal position over the element
-      var x = e.clientX - this.offsetLeft;
-      var position = x / this.clientWidth;
+      // TODO: cache this, clear on scroll / resize etc...
+      var rect = this.getBoundingClientRect();
+      var x = e.clientX - rect.left;
+      var position = x / rect.width;
 
       // ... and which frame should appear there
       this.frame = Math.round((this._frames.length - 1) * position);
