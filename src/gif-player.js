@@ -52,6 +52,7 @@ export default function() {
       this._bounce = false;
       this._prerender = false;
       this._direction = 1;
+      this._onload = null;
 
       this.pausePlaybackBound = this.pausePlayback.bind(this);
       this.moveBound = this.move.bind(this);
@@ -142,6 +143,9 @@ export default function() {
     get prerender() { return this._prerender; }
     set prerender(val) { this._prerender = val; }
 
+    get onload() { return this._onload; }
+    set onload(val) { this._onload = val; }
+
     move(e) {
       e.preventDefault();
 
@@ -174,7 +178,6 @@ export default function() {
 
     process(gif) {
       this._gif = gif;
-      this.dispatchEvent(new CustomEvent('gif-loaded', { bubbles: true, composed: true, detail: gif }));
 
       // canvas drawing area always matches the gif size
       this._canvas.width = gif.width;
@@ -240,6 +243,12 @@ export default function() {
 
       if (this._frame < 0) {
         this._frame = this._frames.length + this._frame;
+      }
+
+      var e = new CustomEvent('gif-loaded', { bubbles: true, composed: true, detail: gif });
+      this.dispatchEvent(e);
+      if (this._onload) {
+        this._onload(e);
       }
 
       if (this._play) {
