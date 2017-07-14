@@ -6,10 +6,12 @@ WebComponent to control Animated GIF playback and access individual frames.
 
 [More demos](https://captaincodeman.github.io/gif-player/components/gif-player/demo/)
 
+Move your mouse over the images ...
 <!--
 ```
 <custom-element-demo>
   <template>
+    <script src="../webcomponentsjs/webcomponents-loader.js"></script>
     <link rel="import" href="gif-player.html">
     <next-code-block></next-code-block>
   </template>
