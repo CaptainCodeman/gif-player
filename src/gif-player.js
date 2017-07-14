@@ -62,17 +62,17 @@ export default function() {
       const shadowRoot = this.attachShadow({mode: 'open'});
       shadowRoot.appendChild(document.importNode(template.content, true));
 
-      this.style.display = 'inline-block';
-      this.style.position = 'relative';
-      this.style.overflow = 'hidden';
-      this.style.cursor = 'col-resize';
-
       this._spinner = shadowRoot.querySelector('.spinner');
       this._canvas = shadowRoot.querySelector('canvas');
       this._ctx = this._canvas.getContext('2d');
     }
 
     connectedCallback() {
+      this.style.display = 'inline-block';
+      this.style.position = 'relative';
+      this.style.overflow = 'hidden';
+      this.style.cursor = 'col-resize';
+
       this.addEventListener('touchstart', this.pausePlaybackBound, false);
       this.addEventListener('touchmove', this.moveBound, false);
       this.addEventListener('touchend', this.resumePlaybackBound, false);
