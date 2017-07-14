@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>gif-player demo</title>
+
+    <script src="../../webcomponentsjs/webcomponents-loader.js"></script>
+
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <script src="../dist/gif-player.es6.js" defer async></script>
+
+    <custom-style>
+      <style is="custom-style" include="demo-pages-shared-styles">
+        .centered {
+          max-width: 810px;
+        }
+
+        #examples {
+          overflow: auto;
+          margin: 0 -10px;
+        }
+
+        gif-player {
+          display: block;
+          float: left;
+          margin: 10px;
+          border: 1px solid #ccc;
+          width: 240px;
+          height: 160px;
+        }
+      </style>
+    </custom-style>
+  </head>
+  <body>
+    <div class="vertical-section-container centered">
+      <h3>Size Contained</h3>
+      <demo-snippet>
+        <template strip-whitespace>
+          <div id="examples">
+          <gif-player src="https://media.giphy.com/media/xUA7aN3q0LoPMsetuU/giphy.gif" size="contain" prerender></gif-player>
+          <gif-player src="https://media.giphy.com/media/nh5QMbO89SFTG/giphy.gif" size="contain" prerender></gif-player>
+          <gif-player src="https://media.giphy.com/media/71AU6Hvyvg9e8/giphy.gif" size="contain" prerender></gif-player>
+          <gif-player src="https://media.giphy.com/media/TN0GTccRi7Ixa/giphy.gif" size="contain" prerender></gif-player>
+          <gif-player src="https://media3.giphy.com/media/Y5DLjUZysisyA/giphy.gif" size="contain" prerender></gif-player>
+          <gif-player src="https://i.imgur.com/iKXH4E2.gif" size="contain" prerender></gif-player>
+          <gif-player src="https://i.imgur.com/m25uYzq.gif" size="contain" prerender></gif-player>
+          <gif-player src="https://i.imgur.com/RY2vTBQ.gif" size="contain" prerender></gif-player>
+          <gif-player src="https://i.imgur.com/OQa6gbp.gif" size="contain" prerender></gif-player>
+          </div>
+        </template>
+      </demo-snippet>
+    </div>
+  </body>
+</html>

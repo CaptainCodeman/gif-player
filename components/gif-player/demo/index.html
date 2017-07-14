@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>gif-player demos</title>
+
+    <script src="../../webcomponentsjs/webcomponents-loader.js"></script>
+
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <script src="../dist/gif-player.es6.js" defer async></script>
+
+    <custom-style>
+      <style is="custom-style" include="demo-pages-shared-styles">
+        .centered {
+          max-width: 810px;
+        }
+
+        #examples {
+          overflow: auto;
+          margin: 0 -10px;
+        }
+
+        gif-player {
+          display: block;
+          margin: 10px;
+          border: 1px solid #ccc;
+          width: 240px;
+          height: 160px;
+        }
+      </style>
+    </custom-style>
+  </head>
+  <body>
+    <div class="vertical-section-container centered">
+      <h3>Basic</h3>
+      <p>Yeah, it's an animated GIF, just like if you loaded it in an &lt;img&gt; tag, but ...</p>
+      <p>
+        Move your mouse over it and you should be able to flip forward and backwards - the left of
+        the image is the start of the animation and the right is the end. There's more we can do:
+      </p>
+      <ul>
+        <li><a href="fullsize.html">Full-size GIF images</a></li>
+        <li><a href="contained.html">Constrain image dimensions</a></li>
+        <li>More Examples to come ...</li>
+      </ul>
+      <demo-snippet>
+        <template strip-whitespace>
+          <gif-player src="https://media3.giphy.com/media/Y5DLjUZysisyA/giphy.gif" speed="1" play></gif-player>
+        </template>
+      </demo-snippet>
+    </div>
+  </body>
+</html>
