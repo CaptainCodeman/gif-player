@@ -75,3 +75,5 @@ It's not fully finished yet but it works pretty well for what I needed. Here are
 * Check disposal rules to determine exactly when retaining previous frame is required.
 * Make omggif a dependency and figure out how to make rollup remove the writer
 * Use css for cover / contain settings
+
+Save decoded data so it isn't decompressed for every frame

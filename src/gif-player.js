@@ -40,11 +40,6 @@ export default function() {
     constructor() {
       super();
 
-      this._frames = [];
-      this._delays = [];
-      this._frame = 0;
-      this._decoded = -1;
-      this._rendered = -1;    // frame last rendered
       this._speed = 0.5;
       this._size = 'auto';
       this._swipe = true;
@@ -52,7 +47,8 @@ export default function() {
       this._bounce = false;
       this._prerender = false;
       this._direction = 1;
-      this._onload = null;
+
+      this._reset();
 
       this.pausePlaybackBound = this.pausePlayback.bind(this);
       this.moveBound = this.move.bind(this);
@@ -96,6 +92,14 @@ export default function() {
     attributeChangedCallback(name, oldValue, newValue) {
       if (oldValue === newValue) return;
       this[name] = newValue;
+    }
+
+    _reset() {
+      this._frames = [];
+      this._delays = [];
+      this._frame = 0;
+      this._decoded = -1;
+      this._rendered = -1;    // frame last rendered
     }
 
     _handleBoolean(name, val) {
@@ -149,10 +153,17 @@ export default function() {
     move(e) {
       e.preventDefault();
 
+      var clientX;
+      if (e.targetTouches) {
+        clientX = e.targetTouches[0].clientX;
+      } else {
+        clientX = e.clientX;
+      }
+
       // calculate our relative horizontal position over the element
       // TODO: cache this, clear on scroll / resize etc...
       var rect = this.getBoundingClientRect();
-      var x = e.clientX - rect.left;
+      var x = clientX - rect.left;
       var position = x / rect.width;
 
       // ... and which frame should appear there
@@ -160,9 +171,10 @@ export default function() {
     }
 
     load(src) {
+      this._reset();
+
       this.dispatchEvent(new CustomEvent('gif-loading', { bubbles: true, composed: true, detail: src }));
       this._spinner.style.display = 'block';
-      this._frames = [];
 
       var options = {
         method: 'GET',
