@@ -1,4 +1,8 @@
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/captaincodeman/gif-player)
+  
+[![Published on Vaadin  Directory](https://img.shields.io/badge/Vaadin%20Directory-published-00b4f0.svg)](https://vaadin.com/directory/component/CaptainCodemangif-player)
+[![Stars on vaadin.com/directory](https://img.shields.io/vaadin-directory/star/CaptainCodemangif-player.svg)](https://vaadin.com/directory/component/CaptainCodemangif-player)
+  
 
 # \<gif-player\>
 
